@@ -1,42 +1,44 @@
-# Odirico Cloudflare Repo
+# Odirico Website
 
-This folder is the clean Git-ready version of the Odirico website.
+This repository contains the public-facing Odirico website.
 
-## Use this folder for GitHub
+## Primary pages
 
-Repository folder:
-
-- `cloudflare-git/`
-
-This folder contains only the public website files and is the version you should connect to GitHub for Cloudflare Pages auto-deploys.
+- `index.html` - Odirico master brand homepage
+- `expertise.html` - Odirico Consulting services page
+- `products.html` - Odirico OS product page
+- `capability.html` - capability statement and business model summary
+- `about.html` - brand and firm structure
+- `contact.html` - consulting, demo, and capability intake
+- `sectors.html` - target markets and buyer focus
+- `styles.css`
+- `script.js`
+- `assets/`
 
 ## Cloudflare Pages settings
 
 - Framework preset: `None`
-- Production branch: `main`
-- Build command: `exit 0`
+- Build command: leave blank
 - Build output directory: `.`
 
-## First commit
+## Branching strategy
 
-If Git asks for your identity before committing, set:
+This repo uses feature branching.
 
-```powershell
-git config user.name "Your Name"
-git config user.email "you@example.com"
-```
+| Branch | Purpose |
+|---|---|
+| `main` | Stable branch and deployment source |
+| `feature/*` | New site sections or UI updates |
+| `fix/*` | Bug fixes and production corrections |
+| `content/*` | Copy, messaging, and content updates |
+| `docs/*` | Documentation-only changes |
 
-Then commit and push to GitHub.
+Create short-lived branches from `main`, open a PR, and merge back into `main` for deployment.
 
 ## Before launch
 
-Replace the placeholder values in:
+Replace the remaining placeholders across the site:
 
-- `contact.html`
-- the footer content on the site pages
-
-Update:
-
-- email
-- phone
-- any final biography or credential details
+- `contact@odirico.com` if a different inbox should be used
+- phone number
+- any final founder bio, qualifications, or procurement identifiers

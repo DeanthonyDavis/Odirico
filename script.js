@@ -4,12 +4,14 @@ const navGroup = document.querySelector("[data-nav-group]");
 if (navToggle && navGroup) {
   navToggle.addEventListener("click", () => {
     const isOpen = navGroup.classList.toggle("is-open");
+    navGroup.classList.toggle("open", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
   navGroup.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navGroup.classList.remove("is-open");
+      navGroup.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
     });
   });
@@ -32,6 +34,7 @@ if ("IntersectionObserver" in window && revealElements.length > 0) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
+          entry.target.classList.add("visible");
           observer.unobserve(entry.target);
         }
       });
@@ -43,7 +46,10 @@ if ("IntersectionObserver" in window && revealElements.length > 0) {
 
   revealElements.forEach((element) => observer.observe(element));
 } else {
-  revealElements.forEach((element) => element.classList.add("is-visible"));
+  revealElements.forEach((element) => {
+    element.classList.add("is-visible");
+    element.classList.add("visible");
+  });
 }
 
 const yearNode = document.querySelector("[data-year]");
@@ -59,6 +65,6 @@ if (contactForm && formStatus) {
     event.preventDefault();
     contactForm.reset();
     formStatus.textContent =
-      "This demo form is ready to connect to your preferred inbox or CRM before launch.";
+      "Thanks. This demo form is ready to connect to your preferred inbox or CRM before launch.";
   });
 }
